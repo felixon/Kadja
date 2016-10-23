@@ -1,0 +1,24 @@
+{% extends "rango/base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+   	   <h1> Profile </h1> <br/>
+	   <h2>{{ user.username }}</h2>
+       <p>Email: {{ user.email }}</p>
+       
+       {% if userprofile %}
+	   <p>Website: <a href="{{ userprofile.website }}">{{userprofile.website}}</a></p>
+           <br/>
+       {% if userprofile.picture %}
+	   <img class="img-square", src="{{ userprofile.picture.url }}" width="300", height="200" />
+           <br />
+           <br>
+
+		   <a type="submit" name="submit" class="btn btn-primary" href="/rango/update_profile/">Update Profile</a>
+
+	   {% endif %}
+	   {% endif %}
+</div>
+{% endblock %}

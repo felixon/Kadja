@@ -1,0 +1,16 @@
+{% extends 'rango/base.html' %}
+{% block title %}Edit Profile -{{ block.super }}{% endblock %}
+
+{% block body_block %}
+<h2 class="flow-text">Update your information</h2>
+<form id="form" action="/rango/update_profile/" method="POST"  enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p }}
+              {{ update_profile_form.as_p }}
+             <img class="img-square", src="{{ update_profile_form.instance.picture.url }} " width="300", height="200" />
+             <br />
+             <br>
+              <input type="submit" name="submit" class="btn btn-primary" value="Update">
+</form>
+
+{% endblock %}

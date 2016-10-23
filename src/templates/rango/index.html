@@ -1,0 +1,54 @@
+{% extends "rango/base.html" %}
+
+{% block title %}Welcome to Kadja!{% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+    <h1>Start the fun with Kadja</h1>
+
+    <p>Find, Add, Share and Kadja useful links and resources.</p>
+</div>
+<div class="hero-unit">
+<h1> POSTS</h1>
+    <h3><a href="http://www.r4dinternational.org/vacancies.php?lang=0" target="_blank">Administrative and Finance Assistant</a></h3>
+    {{ post.body|safe|truncatewords:"10"|linebreaks }}
+    <p>Cameroon - SHUTDOWN MANAGER required by our client a multinational Oil and Gas Operator, to be hired on a contract basis, located in Cameroon Duration: Short Term POSITION SCOPE Define the technical perimeter in which the Shutdown Manager will operate. Organization of the project tha...</p>
+    <a class="btn btn-primary" href="/rango/post_list/">Learn More <i class="right arrow icon"></i></a>
+    <!--Added today 08-sep-16 -->
+
+</div>
+
+
+<div class="row-fluid">
+    <div class="span6">
+        <h2>Top Five Categories</h2>
+        {% if categories %}
+        <ul>
+            {% for category in categories %}
+            <li><a href="/rango/category/{{ category.url }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>No categories at present.</strong>
+        {% endif %}
+
+    </div>
+    <!--/span-->
+    <div class="span6">
+        <h2>Top Five Pages</h2>
+        {% if pages %}
+        <ul>
+            {% for page in pages %}
+            <li><a href="{{ page.url}}">{{ page.title }}</a> - {{ page.category}} ({{ page.views }} view(s))</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>No pages at present.</strong>
+        {% endif %}
+
+    </div>
+    <!--/span-->
+</div><!--/row-->
+
+{% endblock %}
+
